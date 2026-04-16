@@ -1,0 +1,325 @@
+[gd_scene format=3 uid="uid://c8l7b3v8j4x2"]
+
+[ext_resource type="Script" uid="uid://3iqn0s18kls3" path="res://src/ui/member_stats_ui.gd" id="1_script"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_member"]
+bg_color = Color(0.12, 0.14, 0.16, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.25, 0.28, 0.32, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+shadow_color = Color(0, 0, 0, 0.3)
+shadow_size = 4
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_BarBG"]
+bg_color = Color(0.08, 0.09, 0.1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_EXPFill"]
+bg_color = Color(0.2, 0.5, 0.9, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_BtnNormal"]
+bg_color = Color(0.2, 0.23, 0.26, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.3, 0.35, 0.4, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_BtnHover"]
+bg_color = Color(0.28, 0.32, 0.36, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.4, 0.45, 0.5, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_StaminaFill"]
+bg_color = Color(0.18, 0.8, 0.44, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="MemberStatsUI" type="PanelContainer" unique_id=1764035897]
+custom_minimum_size = Vector2(250, 135)
+offset_right = 250.0
+offset_bottom = 135.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_member")
+script = ExtResource("1_script")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1758719634]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1222272326]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Header" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1185871622]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/Header" unique_id=368694647]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Member Name"
+clip_text = true
+
+[node name="LevelLabel" type="Label" parent="MarginContainer/VBoxContainer/Header" unique_id=881981305]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.8, 0.2, 1)
+theme_override_font_sizes/font_size = 13
+text = "Lv. 1"
+
+[node name="EXPBar" type="ProgressBar" parent="MarginContainer/VBoxContainer" unique_id=172030786]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_BarBG")
+theme_override_styles/fill = SubResource("StyleBoxFlat_EXPFill")
+value = 50.0
+show_percentage = false
+
+[node name="SkillsGrid" type="GridContainer" parent="MarginContainer/VBoxContainer" unique_id=1379320455]
+layout_mode = 2
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 4
+columns = 3
+
+[node name="T" type="HBoxContainer" parent="MarginContainer/VBoxContainer/SkillsGrid" unique_id=2035655056]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="L" type="Label" parent="MarginContainer/VBoxContainer/SkillsGrid/T" unique_id=757083041]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 11
+text = "Tech:"
+
+[node name="TechnicalValue" type="Label" parent="MarginContainer/VBoxContainer/SkillsGrid/T" unique_id=1242227245]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "4.0"
+
+[node name="A" type="HBoxContainer" parent="MarginContainer/VBoxContainer/SkillsGrid" unique_id=1592235820]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="L" type="Label" parent="MarginContainer/VBoxContainer/SkillsGrid/A" unique_id=1093681680]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 11
+text = "Admin:"
+
+[node name="AdminValue" type="Label" parent="MarginContainer/VBoxContainer/SkillsGrid/A" unique_id=92828043]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "1.0"
+
+[node name="C" type="HBoxContainer" parent="MarginContainer/VBoxContainer/SkillsGrid" unique_id=82492546]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="L" type="Label" parent="MarginContainer/VBoxContainer/SkillsGrid/C" unique_id=122999838]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 11
+text = "Creative:"
+
+[node name="CreativeValue" type="Label" parent="MarginContainer/VBoxContainer/SkillsGrid/C" unique_id=992128222]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "1.0"
+
+[node name="StaminaContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=138387271]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+
+[node name="AddStaminaButton" type="Button" parent="MarginContainer/VBoxContainer/StaminaContainer" unique_id=138387272]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_BtnNormal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_BtnNormal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_BtnHover")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_BtnNormal")
+text = "+"
+
+[node name="StaminaBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/StaminaContainer" unique_id=138387270]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_BarBG")
+theme_override_styles/fill = SubResource("StyleBoxFlat_StaminaFill")
+value = 100.0
+show_percentage = false
+
+[node name="StaminaLabel" type="Label" parent="MarginContainer/VBoxContainer/StaminaContainer/StaminaBar" unique_id=2080241594]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 10
+text = "STAMINA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AttrGrid" type="GridContainer" parent="MarginContainer/VBoxContainer" unique_id=955829313]
+layout_mode = 2
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 4
+columns = 2
+
+[node name="Spd" type="HBoxContainer" parent="MarginContainer/VBoxContainer/AttrGrid" unique_id=1417382230]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AddSpeedButton" type="Button" parent="MarginContainer/VBoxContainer/AttrGrid/Spd" unique_id=1558094681]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_BtnNormal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_BtnNormal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_BtnHover")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_BtnNormal")
+text = "+"
+
+[node name="L" type="Label" parent="MarginContainer/VBoxContainer/AttrGrid/Spd" unique_id=1475219948]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 11
+text = "Speed:"
+
+[node name="SpeedValue" type="Label" parent="MarginContainer/VBoxContainer/AttrGrid/Spd" unique_id=1558094680]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "2"
+
+[node name="Lrn" type="HBoxContainer" parent="MarginContainer/VBoxContainer/AttrGrid" unique_id=2057132241]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AddLearningButton" type="Button" parent="MarginContainer/VBoxContainer/AttrGrid/Lrn" unique_id=714154422]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_BtnNormal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_BtnNormal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_BtnHover")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_BtnNormal")
+text = "+"
+
+[node name="L" type="Label" parent="MarginContainer/VBoxContainer/AttrGrid/Lrn" unique_id=584350665]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 11
+text = "Learn:"
+
+[node name="LearningValue" type="Label" parent="MarginContainer/VBoxContainer/AttrGrid/Lrn" unique_id=714154421]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "3"
+
+[node name="Mul" type="HBoxContainer" parent="MarginContainer/VBoxContainer/AttrGrid" unique_id=1895213487]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AddMultitaskButton" type="Button" parent="MarginContainer/VBoxContainer/AttrGrid/Mul" unique_id=176917801]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_BtnNormal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_BtnNormal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_BtnHover")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_BtnNormal")
+text = "+"
+
+[node name="L" type="Label" parent="MarginContainer/VBoxContainer/AttrGrid/Mul" unique_id=813478818]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 11
+text = "Multi:"
+
+[node name="MultitaskValue" type="Label" parent="MarginContainer/VBoxContainer/AttrGrid/Mul" unique_id=176917800]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "-5"
+
+[node name="Team" type="HBoxContainer" parent="MarginContainer/VBoxContainer/AttrGrid" unique_id=658921213]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AddTeamworkButton" type="Button" parent="MarginContainer/VBoxContainer/AttrGrid/Team" unique_id=11212649]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_BtnNormal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_BtnNormal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_BtnHover")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_BtnNormal")
+text = "+"
+
+[node name="L" type="Label" parent="MarginContainer/VBoxContainer/AttrGrid/Team" unique_id=81426947]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 11
+text = "Team:"
+
+[node name="TeamworkValue" type="Label" parent="MarginContainer/VBoxContainer/AttrGrid/Team" unique_id=11212648]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "-9"

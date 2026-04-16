@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://b8d2y3v8j4x1"]
+
+[ext_resource type="Script" uid="uid://clm5vgcjccj0" path="res://src/ui/main_game.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://cxn45ldfi03x5" path="res://src/ui/game_over_dialog.tscn" id="2_dialog"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_Header"]
+bg_color = Color(0.12, 0.14, 0.18, 0.95)
+border_width_bottom = 2
+border_color = Color(0.25, 0.45, 0.7, 0.3)
+shadow_color = Color(0, 0, 0, 0.3)
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_Sidebar"]
+bg_color = Color(0.08, 0.09, 0.11, 0.4)
+border_width_right = 1
+border_color = Color(1, 1, 1, 0.05)
+
+[node name="MainGame" type="Control" unique_id=986189367 groups=["main_game"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="." unique_id=472037152]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.06, 0.08, 1)
+
+[node name="MainLayout" type="VBoxContainer" parent="." unique_id=1240921682 groups=["main_layout"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="TopBar" type="PanelContainer" parent="MainLayout" unique_id=1204806947]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_Header")
+
+[node name="MarginContainer" type="MarginContainer" parent="MainLayout/TopBar" unique_id=687323717]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="HBox" type="HBoxContainer" parent="MainLayout/TopBar/MarginContainer" unique_id=1660922000]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="GameTitle" type="Label" parent="MainLayout/TopBar/MarginContainer/HBox" unique_id=1099556131]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.4, 0.7, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = "THE LEAD ENGINE"
+vertical_alignment = 1
+
+[node name="TrustLabel" type="Label" parent="MainLayout/TopBar/MarginContainer/HBox" unique_id=615468082]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.8, 0.2, 1)
+theme_override_font_sizes/font_size = 16
+text = "Trust: 100%"
+vertical_alignment = 1
+
+[node name="TaskLabel" type="Label" parent="MainLayout/TopBar/MarginContainer/HBox" unique_id=559718690]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Tasks: 0"
+vertical_alignment = 1
+
+[node name="Content" type="HBoxContainer" parent="MainLayout" unique_id=857851661]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Sidebar" type="PanelContainer" parent="MainLayout/Content" unique_id=1103615936]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_Sidebar")
+
+[node name="MarginContainer" type="MarginContainer" parent="MainLayout/Content/Sidebar" unique_id=1270314916]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="MemberContainer" type="VBoxContainer" parent="MainLayout/Content/Sidebar/MarginContainer" unique_id=1127733079]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="MainPanel" type="MarginContainer" parent="MainLayout/Content" unique_id=1781166059]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainLayout/Content/MainPanel" unique_id=90575716]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="GridMargin" type="MarginContainer" parent="MainLayout/Content/MainPanel/ScrollContainer" unique_id=912247759]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="TaskContainer" type="GridContainer" parent="MainLayout/Content/MainPanel/ScrollContainer/GridMargin" unique_id=751303568]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 15
+columns = 5
+
+[node name="GameOverDialog" parent="." unique_id=90668111 instance=ExtResource("2_dialog")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1

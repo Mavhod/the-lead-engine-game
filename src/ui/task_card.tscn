@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://du4y6p7w2x1n"]
+
+[ext_resource type="Script" uid="uid://jpoqs3m00wcb" path="res://src/ui/task_card.gd" id="1_script"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_task"]
+bg_color = Color(0.15, 0.17, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.25, 0.4, 0.6, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[node name="TaskCard" type="PanelContainer" unique_id=1507101808]
+custom_minimum_size = Vector2(180, 180)
+offset_right = 180.0
+offset_bottom = 180.0
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_task")
+script = ExtResource("1_script")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1917467022]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=475929600]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TaskName" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1724481368]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Task Name"
+horizontal_alignment = 1
+clip_text = true
+
+[node name="TaskType" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1878981116]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.7, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Technical"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=51070920]
+layout_mode = 2
+
+[node name="DeadlineContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1149833607]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="HBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer/DeadlineContainer" unique_id=1107614926]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/DeadlineContainer/HBox" unique_id=38905573]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+text = "DEADLINE"
+
+[node name="DeadlineBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/DeadlineContainer" unique_id=1120379854]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+value = 100.0
+show_percentage = false
+
+[node name="ProgressContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=2037583105]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ProgressContainer" unique_id=1308915392]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "PROGRESS"
+
+[node name="ProgressBarUI" type="ProgressBar" parent="MarginContainer/VBoxContainer/ProgressContainer" unique_id=2030267692]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+value = 50.0
+show_percentage = false
+
+[node name="ScalabilityContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1547919390]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScalabilityContainer" unique_id=384210547]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+text = "SCALABILITY"
+
+[node name="ScalabilityValue" type="Label" parent="MarginContainer/VBoxContainer/ScalabilityContainer" unique_id=685933917]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "0.5"
+
+[node name="TeamContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1880603697]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="TeamList" type="GridContainer" parent="MarginContainer/VBoxContainer/TeamContainer" unique_id=862722225]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 2
